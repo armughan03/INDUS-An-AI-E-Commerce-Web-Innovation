@@ -1,0 +1,33 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block body %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+
+          <div class="col-md-2"></div>
+          <div class="col-md-10">
+              <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">UPLOAD A PHOTO</h1>
+              </div>
+              <form class="user" method="post" enctype="multipart/form-data">
+  
+                  <div class="custom-file mb-3">
+                    <div class="custom-file mb-3">
+                      <input type="file" class="custom-file-input" id="customFile" name="image">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                      Upload Photo
+                  </button>
+              </form>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+{% endblock %}

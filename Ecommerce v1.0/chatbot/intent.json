@@ -1,0 +1,207 @@
+{"intents": [
+        {
+          "tag": "identity",
+          "patterns": ["Who is talking?","Who is this?","Who are you?", "What is your name?", "What can i call you?", 
+          "what can i call you?", "Your name please?", "Name?", "Name please?", "I am interested to know your name",
+          "I would like to know your name", "Your good name please?", "what do everyone call you?","identify yourself",
+          "and your name is?"],
+          "responses": ["I am bargybot", "My name is bargybot", "my creator named me bargybot", "You can call me bargybot", "bargybot","I am called bargybot"]
+        },
+        {
+          "tag": "job",
+          "patterns": ["What do you do?", "What is your job?", "What are you created for?", "What are you doing here?",
+          "can you tell me about your job here?", "i need to know about your job.", "I would like to know about your job",
+          "I am interested to discover your job", "I would love to know about your job","Tell me more about your job",
+          "your job please?", "What is your job here?"],
+          "responses": [
+                    "I do bargaining on price of products", "I am a price bargainer bot", "I negotiate price of products",
+                    "My job is to negotiate prices", "I do price bargains", "I do price negotiations"]
+        },
+        {
+          "tag": "greeting",
+          "patterns": ["Hi", "How are you", "How are you feeling?", "Is anyone there?", "Hello", "Good day", "Good evening",
+          "good morning", "hello there?", "hey?","heya", "hey hey hey!", "somebody here?", "Hola!", "Salam", "Whats up?", 
+          "How are you feeling today?"],
+          "responses": ["Hello, thanks for visiting, How can I help?", "Good to see you here", "Hi there, how can I help?"],
+          "context_set": ""
+        },
+        {
+          "tag": "goodbye",
+          "patterns": ["bye","Bye", "See you later", "Goodbye","goodbye", "farewell", "so long", "talk to you later", "hoping to see you again"],
+          "responses": ["See you later, thanks for visiting", "Thank you for your time come back soon!","Have a nice day", "Bye! Come back again soon."]
+        },
+        {
+          "tag": "thanks",
+          "patterns": [
+              "Thanks", "Thank you", "That's helpful", "Thank you very much", "I thank you", "Many thanks", "Much thanks",
+              "Merci", "Thanks a bunch", "Thanks a million", "Thanks a trillion", "I am thankful"
+          ],
+          "responses": ["Your welcome!", "Any time!", "My pleasure"]
+        },
+        {
+          "tag": "create",
+          "patterns": [
+               "who created you?", "Who is your creator?", "Who designed you?","Who was your designer?", "Who built you?",
+               "who engineered you?","who was your engineer?", "I want to know your creator", "your creator?", "Give me the name of person who created you",
+               "The one who created you?"
+          ],
+          "responses": [
+               "I was created by Ali", "Ali is my creator", "My creator is Ali", "Ali designed me", "Ali was my designer", 
+               "I was built by Ali", "I was engineered by Ali", "I was designed by Ali"
+          ]
+        },
+        {
+          "tag": "noanswer",
+          "patterns": ["bla bla bla"],
+          "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
+        },
+        {
+          "tag": "payments",
+          "patterns": [
+              "credit cards", "Do you take credit cards?", "Do you accept Mastercard?", "Are you cash only?", "Do you accept credit cards",
+           "I want to know the payment methods", "payment methods", "what are the payment methods?"],
+          "responses": ["We accept VISA, Mastercard and AMEX", "We accept most major credit cards"]
+        },
+        {
+          "tag": "opentoday",
+          "patterns": ["Are you open today?", "When do you open today?", "What are your hours today?"],
+          "responses": ["We're open every day from 9am-9pm", "Our hours are 9am-9pm every day"]
+        },
+        {
+          "tag":"negotiationstart",
+          "patterns":[
+            "I want to buy this product but price is too much", "It's a little too much for this product", "The price is too much for me",
+            "price is too high", "price is too much", "I want this in less price", "could you lessen the price", "I would love if you could make the amount less",
+            "price is unreasonable","It is very unreasonable price", "will i get a discount on this one?", "can i get a discount?","any concession",
+            "would you lower the price?","I want this in less price" 
+          ],
+          "responses":[
+            "give me an offer", "give me an offer i cannot refuse",
+            "name your offer", "tell me your offer", "Alright how much can you pay?", "how much is your budget?",
+            "how much can you cough up?", "let your offer out.", "what is your offer?", "give me another offer", "give me a fair offer",
+            "although price tag is already fair one but i will look forward to fair offers from you."
+          ],
+          "context_set": "negotiateprice"
+        },
+         {
+          "tag":"negotiationstart",
+          "patterns":[
+            "i want this in a reasonable amount","price is too much!", "I would like to negotiate price for this"
+            ,"price is high compared to market","price is high","I want this product for cheaper rate","I want less rate", "rate is too much", "please lessen the rate",
+            "price seems high", "price seems unreasonable", "price is out of my range", "price is out of my budget", "It is out of my budget", "not a fair price", "price is not fair",
+            "give me for a fair price","I can not afford to buy it in this price.","I am here to bargain","i am here for a bargain","is that the final price?","is that tag final price?", 
+            "I cannot afford it. lower the price please", "lessen the price" 
+          ],
+          "responses":[
+            "give me an offer", "give me an offer i cannot refuse",
+            "name your offer", "tell me your offer", "Alright how much can you pay?", "how much is your budget?",
+            "how much can you cough up?", "let your offer out.", "what is your offer?", "give me your offer", "give me a fair offer",
+            "although price tag is already fair one but i will look forward to fair offers from you."
+          ],
+          "context_set": "negotiateprice"
+        },
+        {
+          "tag":"negotiationstart",
+          "patterns": [
+            "I refuse", "no we don't", "no we do not", "rejected", "I do not accept", "I don't accept", "I disagree", "no way this is too much",
+            "I reject", "no deal", "we dont have a deal", "we do not have a deal", "unacceptable", "this is too much for a fair offer","I wont accept",
+            "no way no deal", "I cannot accept that", "I will not accept that", "I may not accept that","nop no deal", "i do not like this", "refuse"
+          ],
+          "responses":[
+            "give me a fair offer then", "then give me an offer i cannot refuse",
+            "I am open to fair offers then", " then tell me your offer", "Alright how much can you pay then?", "then give me a fair offer in your budget?",
+            "how much can you cough up then?", "Alright! what is your offer then?", "give me another offer", "give me a fair offer then",
+            "my offer is already fair one but i will look forward to reasonable offers from you."
+          ],
+          "context_set": "negotiateprice"
+        },
+        {
+          "tag": "customeroffers",
+          "patterns":[
+            "I can pay an amount of rs.___","I think it should not be more than", "I think rs.___ is a fair price", "I am ready to pay rs.___ for it", "I can surely pay rs.___ for it",
+            "I will give rs.___", "I will give rs.___ for this", "I can give out rs.___", "I can give out rs.___ for this item", "I can give out rs.___ for this product", "I will take it in rs.___",
+            "I am ready to take it in rs.___", "I will take it if you give it in rs.___", "I will pay rs.___ for this", "I am not paying more than rs.___ for this",
+            "I think Rs.___ is the most accurate price for it", "rs.___ is my offer", "my offer is rs.___", "I would like to lower that price tag to Rs.___", 
+            "I want it in Rs.___", "Give it to me in rs.___","my budget is rs.___", "my limit is rs.___", "I can get the same for rs.___ in market",
+            "I can buy the same for rs.___ in market"
+          ],
+          "responses":["I will give it out for Rs.___/-", "Alright then give Rs.___/- for it.", "for you i will sell it in Rs.___/-", "give Rs.___/- and take it.", 
+          "Although the price is fair but i will reduce it to rs.___/- for you",
+          "that would be a steal lets close the deal on rs.___/-", "thats even lesser than the price we paid for it i can do rs.___/-"
+          ],
+          "context_filter": "negotiateprice"
+        },
+         {
+          "tag": "customeroffers",
+          "patterns":[
+            "I can get the same for rs.___ from other shop", "I can get the same for rs.___ from other shop",
+            "other shop offered it in rs.___", "rs.___ was the offer in other place", "rs.___ was the offer in other shop", "rs.___ was the offer on other website",
+            "I can buy two for rs.___ in other shops", "I can buy two for rs.___ from other shops", "I can buy two for rs.___ in other sites", "rs.___ is a no go",
+            "rs.___?", "Rs.___? I am very interested in this", "Rs.___? I really want to buy this", "what about rs.___", "what about Rs.___", "I would set my offer on rs.___",
+            "I would like to set my offer on rs.___"
+          ],
+          "responses":["I will give it out for Rs.___/-", "Alright then give Rs.___/- for it.", "for you i will sell it in Rs.___/-", "give Rs.___/- and take it.", 
+          "Although the price is fair but i will reduce it to rs.___/- for you",
+          "that would be a steal lets close the deal on rs.___/-", "thats even lesser than the price we paid for it i can do rs.___/-"
+          ],
+          "context_filter": "negotiateprice"
+        },
+        {
+          "tag": "customeroffers",
+          "patterns":[
+            "I can offer rs.___", "my offer is rs.___", "this product is worth no more than rs.___", "I believe this is worth no more than rs.___",
+            "I believe rs.___ is good offer for this item.", "I believe rs.___ is best offer for this item.", "I believe rs.___ is resonable offer for this item.",
+            "another shop is offering similar item at rs.___", "another shop is offering same item at rs.___", "Fine rs.___ it is.", "I cannot cross rs.___",
+            "I cannot exceed rs.___", "I will go up to rs.___", "I can go upto rs.___", "i can buy it from another store in less than rs.___", 
+            "I can get the same quality for rs.___", "rs.___ sell it or give it up", "rs.___ no more than that","rs.___ would be a better price","I can offer you rs.___/- no more than that","how about rs.___/-",
+            "what do you say about rs.___/-", "what do you think about rs.___/-"
+          ],
+          "responses":["I will give it out for Rs.___/-", "Alright then give Rs.___/- for it.", "for you i will sell it in Rs.___/-", "give Rs.___/- and take it.", 
+          "Although the price is fair but i will reduce it to rs.___/- for you",
+          "that would be a steal lets close the deal on rs.___/-", "thats even lesser than the price we paid for it i can do rs.___/-"
+          ],
+          "context_filter": "negotiateprice"
+        },
+        {
+          "tag": "finaloffer",
+          "patterns": [
+          "i want the final offer?","final?", "final offer?","what is the final price?", "I want your final offer.", "last offer?", "please give me last offer.",
+          "what is the last offer for this product?", "tell me the final offer.", "tell me the last offer", "tell me final offer","what is extremely last offer",
+          "how far can the price go?", "how far can the price be lessened","name your last offer.", "final offer for this item", "final price for this item",
+          "last offer for this product?", "dead final offer?", "full and final offer"
+          ],
+          "responses": ["Rs.___/ is the least i can do. no lower than that","I will go no lower than Rs.___/-","Rs.___/-", "full and final price Rs.___/-", "dead final offer Rs.___/-", "last offer for you is Rs.___/-", "Last offer is Rs.___/- deal or not?",
+          "final price is Rs.___/- accept or reject?", "full and final offer is rs.___/- I will not go lower than that", "I will stay with my offer of rs.___/-"]
+        },
+        {
+          "tag": "deal",
+          "patterns": [
+            "accept","I accept", "deal", "I accept the offer", "accepted", "agreed", "I agree","we have a deal", "ok I accept",
+            "fine I accept", "done deal"
+          ],
+          "responses": ["Thanks! we have a deal. Please click on add to cart button now", "Thank you for your time. You can now add the item to cart to avail discounted price", "Thank you. Click on add to cart button to avail the discounted price"]
+        },
+        {
+          "tag": "nopolicy",
+          "patterns":[
+          "can i get buy one get one free offer?", "is it buy one get one free?", "I will buy many units if you sell it at.",
+            ""],
+          "responses":["we do not keep such policies", "we do not have such policies", "I am afraid we dont have such policies"]
+        },
+        {
+           "tag": "foolishoffer",
+           "patterns":["foolish offer"],
+           "responses":[
+            "i am a honest bot i will not accept prices that are not sensible", "that is not a sensible offer",
+            "i cannot accept that", "i am afraid i cannot accept that because it's not a sensible offer",
+            "that would be silly to offer such price"
+           ]
+        },
+        {
+            "tag": "acceptcustomeroffer",
+            "patterns":["suitable offer by the customer"],
+            "responses":["your offer seems reasonable. we have a deal on rs.___/- You may now add the product to cart.", "I accept your offer at rs.___/- You may now add the product to cart.",
+            "ok! we have a deal at rs.___/- click on add to cart button now"]
+        }
+   ]
+}

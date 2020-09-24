@@ -1,0 +1,38 @@
+{% extends 'admin/admin_layout.html' %}
+{% block body %}
+    <div class="container row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Admin</h1>
+            </div>
+            {% from "shared/_formhelpers.html" import render_field %}
+            <form class="user" method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group">
+                    {{ render_field(form.name, class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.email, class_="form-control") }}
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        {{ render_field(form.password, class_="form-control") }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ render_field(form.confirm_password, class_="form-control") }}
+                    </div>
+                </div>
+
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="customFile" name="image">
+                    <label class="custom-file-label" for="customFile">Choose Image file</label>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Create Admin
+                </button>
+            </form>
+        </div>
+           
+    </div>
+       
+{% endblock %}

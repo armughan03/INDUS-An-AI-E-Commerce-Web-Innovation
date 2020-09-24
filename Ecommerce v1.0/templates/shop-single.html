@@ -1,0 +1,168 @@
+{% extends 'layout.html' %}
+{% set active_page = 'shop' %}
+{% set pg = 'shop_single' %}
+{% block body %}
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span>
+             <strong class="text-black"><a href="/shop">{{active_page.capitalize()}}</a></strong><span class="mx-2 mb-0">/</span> 
+             <strong class="text-black">{{product.prd_name}}</strong>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="{{ product.image_path }}" alt="Image" class="img-fluid" >
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-black">{{ product.prd_name}} </h2>
+            <p>{{ product.prd_description }}</p>
+            <!-- <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p> -->
+            <p><strong class="text-primary h4">Rs. {{ product.prd_price }}</strong></p>
+            <form class="user" id="cartform" method="POST" action="">
+              <input type="hidden" name="article_no" value="{{ product.article_no }}" id="article_no">
+              <div class="mb-1 d-flex">
+                <div class="form-group">
+                      <span class="d-inline-block text-black">Select Size</span>
+                      <select class="form-control" name="size" id="size">
+                        <option value="nosize">Select Your Size</option>
+                        {% if product.size_s >= 1 %} <option value="size_s">Small</option> {% endif %}
+                        {% if product.size_m >= 1 %} <option value="size_m">Medium</option> {% endif %}
+                        {% if product.size_l >= 1 %} <option value="size_l">Large</option> {% endif %}
+                        {% if product.size_xl >= 1 %} <option value="size_xl">X-Large</option> {% endif %}
+                      </select>
+                  </div>
+              </div>
+
+              <div class="mb-5">
+                <span class="d-inline-block text-black">Quantity</span>
+                <div class="input-group mb-3" style="max-width: 120px;">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                    </div>
+                    <input type="text" class="form-control text-center" id="quantity" name="quantity" value="0" placeholder="">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                    </div>
+                </div>
+              </div>
+              <a href="#" data-toggle="modal" data-target="#ChatModal" class="btn btn-success btn-icon-split btn-sm">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-handshake"></i>
+                  </span>
+                  <span class="text">Negotiate Price</span>
+              </a>
+              <button type="submit" class="buy-now btn btn-sm btn-warning">
+                  <span class="icon text-white-50">
+                      <i class="fas fa-shopping-cart"></i>
+                  </span>
+                  <span class="text">Add To Cart</span>  
+              </button>
+          </form>
+          <br><br>
+          
+          <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+          <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="site-section block-3 site-blocks-2 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7 site-section-heading text-center pt-4">
+            <h2>You may also want to buy</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="nonloop-block-3 owl-carousel">
+              {% for p in products %}
+                {% for rec in recommendations %}
+                  {% if rec[1] in p.article_no and p.prd_category == product.prd_category %}
+                    <div class="item">
+                      <div class="block-4 text-center">
+                        <figure class="block-4-image">
+                          <a href="{{ url_for('shop_single', prd = p.article_no )}}"><img src="{{p.image_path}}" alt="{{ p.prd_name }}" class="img-fluid"></a>
+                        </figure>
+                        <div class="block-4-text p-4">
+                          <h3><a href="{{ url_for('shop_single', prd = p.article_no )}}">{{ p.prd_name }}</a></h3>
+                          <p class="mb-0">{{p.prd_category}}</p>
+                          <p class="text-primary font-weight-bold">Rs. {{p.prd_price}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL FOR CHATBOT -->
+    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="ChatModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Negotiate Price</h4>
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          
+          <!-- Modal body -->
+          
+            <div class="row"> 
+              <div class="col-md-5">
+                <div class="block-2 col-sm-12 text-center">
+                    <br>
+                    <figure class="block-2-image">
+                      <img src="{{ product.image_path }}" alt="Image placeholder" class="img-fluid">
+                    </figure>
+                    <div class="block-2-text p-2">
+                      
+                      <h6>{{ product.prd_name }}</h6>
+                      <p>{{ product.prd_description }}</p>
+                      <p class="text-danger font-weight-bold"><span class="icon icon-tag"></span>Rs. {{product.prd_price}}/-</p>
+                  
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="modal-body" style="height: 500px;">
+                  <div id="chatbox">
+                     <div class="messages botText">
+                        <img src="https://i.pinimg.com/originals/7d/9b/1d/7d9b1d662b28cd365b33a01a3d0288e1.gif" alt="Avatar" style="width:100%;">
+                        <p>Please write your price in from rs.xxx/- when making offers. e.g rs.1000/-</p>
+                    </div> 
+                  </div>
+                  <div id="bottom"></div>
+                </div>
+              </div>
+            </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <div id="userInput">
+              <textarea id="textInput" name="msg" placeholder="Message"></textarea>
+              <button id="buttonInput" type="submit"><span class="far fa-paper-plane fa-2x"></span></button>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

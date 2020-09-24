@@ -1,0 +1,60 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block body %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Product Inventory</h1>
+
+          
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">All Products</h6>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                {% for product in product_rows %} 
+                      <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
+                          <div class="block-4 text-center border">
+                            <figure class="block-4-image">
+                              <a href="shop-single.html"><img src="{{product.image_path}}" alt="Image placeholder" class="img-fluid"></a>
+                            </figure>
+                            <div class="block-4-text p-4">
+                              <h4>{{product.prd_name}}</h4>
+                              <p class="mb-0">Finding perfect products</p>
+                              <p class="text-primary font-weight-bold">{{product.prd_price}}</p>
+
+                              <a href="#" class="btn btn-success btn-icon-split btn-sm">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-info"></i>
+                                  </span>
+                                  <span class="text">Details</span>
+                              </a>
+                              <a href="#" class="btn btn-danger btn-icon-split btn-sm">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-trash"></i>
+                                  </span>
+                                  <span class="text">Delete</span>
+                              </a>
+                            </div>
+                               
+                          </div>
+                        </div>
+                {% endfor %}
+              </div>
+                <ul class="pagination pagination-lg" style="justify-content:center">
+                  {% for page_num in range(num_of_pages) %}
+                    <li class="page-item"><a class="page-link" href="{{ url_for('products', page=page_num+1) }}">{{page_num+1}}</a></li>
+                  {% endfor %}
+                </ul>             
+            </div>
+          </div>
+          
+      
+
+        </div>
+        <!-- /.container-fluid -->
+
+{% endblock %}

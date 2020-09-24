@@ -1,0 +1,64 @@
+{% extends 'admin/admin_layout.html' %}
+
+{% block body %}
+    <div class="container row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Add a Product</h1>
+            </div>
+            {% from "shared/_formhelpers.html" import render_field %}
+            <form class="user" method="POST" action="" enctype="multipart/form-data">
+                <div class="form-group">
+                    {{ render_field(form.prd_article, class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.prd_name, class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.prd_type, class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.prd_category, class_="form-control") }}
+                </div>
+                <label for="product description">Description</label>
+                <div class="form-group">
+                    {{ render_field(form.prd_description, class_="form-control", id="editor") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.prd_price, class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.prd_min_price, class_="form-control") }}
+                </div>
+
+                <small class="form-text text-primary">*You can leave empty where quantity not available</small>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <small class="form-text-text-muted"><strong>Small</strong></small>
+                        {{ render_field(form.size_s, class_="form-control") }}
+                        <br>
+                        <small class="form-text-text-muted"><strong>Medium</strong></small>
+                        {{ render_field(form.size_m, class_="form-control") }}
+                    </div>
+                    <div class="col-sm-6">
+                        <small class="form-text-text-muted"><strong>Large</strong></small>
+                        {{ render_field(form.size_l, class_="form-control") }}
+                        <br>
+                        <small class="form-text-text-muted"><strong>Extra-large</strong></small>
+                        {{ render_field(form.size_xl, class_="form-control") }}
+                    </div> 
+                </div>
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="customFile" name="prd_image">
+                    <label class="custom-file-label" for="customFile">Choose Image file</label>
+                </div>
+             
+                <button type="submit" class="btn btn-primary">
+                    Add Product
+                </button>
+            </form>
+        </div>
+           
+    </div>
+{% endblock %}
